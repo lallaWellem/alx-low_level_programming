@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stddef.h> 
+#include <stddef.h>  // Include this header for the sizeof operator
 
 /**
  * main - Entry point
