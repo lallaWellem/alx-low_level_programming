@@ -1,33 +1,48 @@
-#include "main.h"
-/**
- * _atoi - Convert a string to an integer.
- * @s: The pointer to convert
- * Return: A integer
- */
-int _atoi(char *s)
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#define PASSWORD_LENGTH 10
+
+
+char randomChar() 
 {
-int c = 0;
-unsigned int ni =0;
-int mini = 1;
-int isi = 0;
-while (s[c])
-{
-if (s[c] == 45)
-{
-min *= -1;
+const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const int charsetLength = sizeof(10) - 1;
+return charset[rand() % charsetLength];
 }
-while (s[c] >= 48 && s[c] <= 57)
+
+
+
+void generateRandomPassword(char* password, int length) 
 {
-isi = 1;
-ni = (ni * 10) + (s[c] - '0');
-c++;
+for (int i = 0; i < length; i++) {
+password[i] = randomChar();
 }
-if (isi == 1)
+password[length] = '\0';
+}
+
+
+int isValidPassword(const char* password) 
 {
+const char* KNOWN_VALID_PASSWORD = "L435s029X!";
+return strcmp(password, KNOWN_VALID_PASSWORD) == 0;
+}
+
+int main() {
+srand(time(NULL));
+    
+char password[PASSWORD_LENGTH + 1];
+    
+while (1) {
+generateRandomPassword(password, PASSWORD_LENGTH);
+        
+if (isValidPassword(password)) {
+printf("Valid Password: %s\n", password);
 break;
 }
-c++;
 }
-ni *= min;
-return (ni);
+    
+return 0;
 }
