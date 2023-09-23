@@ -1,19 +1,19 @@
 #include "main.h"
-	/**
-	 * main - print _putchar
-	 * is written by mbah
-	 * Return: 0
-	 */
-	int main(void)
-	{
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
-	return (0);
-	}
+/**
+ * print_alphabet_x10- Make alaphabet x10 times
+ * Return: void
+ */
+void print_alphabet_x10(void)
+{
+char c;
+int i = 0;
+while (i <= 9)
+{
+for (c = 'a'; c <= '2'; c++)
+{
+_putchar(c);
+}
+_putchar('\n');
+i++;
+}
+}
